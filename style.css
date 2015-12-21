@@ -1,0 +1,1115 @@
+/* TODO
+ * - content fix
+ *   - broken footnotes
+ *     - http://tarao.hatenablog.com/entry/20110819/1313759600
+ *     - http://tarao.hatenablog.com/entry/20120711/1341969567
+ *     - http://tarao.hatenablog.com/entry/20130303/evil_intro
+ *     - http://tarao.hatenablog.com/entry/20130304/evil_config
+ *     - http://tarao.hatenablog.com/entry/20131212/1386859873
+ *     - http://tarao.hatenablog.com/entry/20150221/1424518030
+ *     - http://tarao.hatenablog.com/entry/20150815/1439649780
+ *   - embed
+ *   - <blockquote>
+ *     - http://html5doctor.com/cite-and-blockquote-reloaded/
+ *     - http://www.w3.org/TR/html5/grouping-content.html#the-blockquote-element
+ * - remove mock
+ */
+
+/**** Global ****/
+
+body {
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background: #fff;
+    text-align: center;
+    font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "Meiryo", "メイリオ", "MS P Gothic", "ＭＳ Ｐゴシック", sans-serif;
+}
+
+i, cite, em, var, address, dfn {
+    font-style: italic;
+}
+
+a {
+    text-decoration: underline;
+    color: #5e667c;
+}
+a:hover, a:active {
+    text-decoration: none !important;
+    outline-style: solid;
+    outline-width: 1px;
+}
+a:link:hover {
+    background-color: #e0e0ff;
+    outline-color: blue;
+    color: darkblue;
+}
+a:visited {
+    color: #a6acbd;
+}
+a:visited:hover {
+    background-color: #f0f0f0;
+    outline-color: #a6acbd;
+}
+a:active {
+    color: red !important;
+    outline-color: red !important;
+    background-color: #ffe0e0 !important;
+}
+a.hatena-follow-button:hover {
+    outline: none;
+}
+
+a.hatena-fotolife {
+    text-decoration: none;
+    outline: none;
+    background-color: inherit !important;
+}
+
+img,
+img.hatena-fotolife {
+    border: none;
+    max-width: 100%;
+}
+
+.user-name-nickname,
+.user-name-paren {
+    display: none;
+}
+
+/**** Container ****/
+
+@media (max-width: 1199px) {
+    .breadcrumb {
+        position: relative;
+    }
+    #box2-inner {
+        max-width: 850px;
+        width: auto;
+        height: auto;
+        margin: 0 auto;
+        padding: 0 15px 0 20px;
+    }
+}
+@media (min-width: 1200px) {
+    #top-box,
+    #top-editarea,
+    #bottom-editarea,
+    #content {
+        width: 100% !important;
+        overflow: hidden;
+    }
+    .breadcrumb,
+    #content-inner #wrapper {
+        float: left;
+        position: relative;
+        left: 50%;
+        margin-right: -235px;
+    }
+    .breadcrumb > *,
+    #content-inner #wrapper > * {
+        margin-right: 235px !important;
+    }
+    .breadcrumb-inner,
+    #main {
+        min-width: 850px;
+        position: relative;
+        left: -50%;
+    }
+    #box2 {
+        float: left;
+        position: relative;
+        left: 50%;
+        width: 220px;
+        background: #fff;
+    }
+    #box2-inner {
+        position: relative;
+        left: -250%;
+    }
+}
+
+#top-box,
+#top-editarea,
+#bottom-editarea,
+#content {
+    background: #fff;
+    text-align: left;
+    zoom: 1;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.breadcrumb-inner,
+#main {
+    max-width: 850px;
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px 15px 2em 20px;
+    clear: both;
+}
+
+#main {
+    margin-bottom: 6em;
+}
+
+#globalheader-container {
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+    color:#fff;
+    background-color: #6f737f;
+}
+
+/**** Blog title ****/
+
+#blog-title {
+    color: #ffffff;
+    margin: 0 auto;
+    padding: 0;
+    background: #7697d6;
+    text-align: left;
+    font-size: 0.8em;
+    text-indent: 20px;
+}
+
+h1#title {
+    padding: 40px 0 0 0.5em;
+    margin: 0;
+    text-indent: 0;
+    text-align: left;
+    font-size: 500%;
+    font-family: YuMincho, '游明朝', IPAMincho, 'IPA明朝', serif;
+}
+
+h1#title a,
+h1#title a:visited {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+#blog-title-inner {
+    background: url("http://tarao.orezdnu.org/dtitle.png") no-repeat fixed center 0 #7B7E82;
+    height: auto !important;
+    min-height: 200px;
+}
+
+#blog-title-content {
+    margin: 0 auto;
+    width: 90%;
+    max-width: 850px;
+}
+
+/**** Navigation ****/
+
+.pager .pager-prev {
+    display: block;
+    float: left;
+}
+.pager .pager-next {
+    display: block;
+    float: right;
+    text-align: right;
+}
+
+/**** Entry ****/
+
+.entry {
+    margin-bottom: 4em;
+}
+
+h1.entry-title a {
+    text-decoration: none;
+    color: #333;
+}
+h1.entry-title {
+    margin: 0;
+    padding: 5px 0 0 10px;
+    border-left: 9px solid #8e949e;
+    font-size: 130%;
+}
+
+.entry-header div.entry-categories,
+.archive-entry div.categories {
+    border-left-color: #8e949e;
+    padding: 0 0 0 12px;
+    text-align: left;
+    font-size: 80%;
+    position: relative;
+    line-height: 1.5;
+    vertical-align: top;
+    color: #999;
+    border-left: 9px solid #8e949e;
+}
+.entry-header div.entry-categories a:visited,
+.archive-entry div.categories a:visited {
+    color: #5e667c;
+}
+.archive-entry div.categories:before {
+    content: url('/css/theme/afternoon/category.png');
+    margin-right: 5px;
+}
+
+.entry-header div.entry-categories a,
+.archive-entry div.categories a {
+    text-decoration: none;
+    margin-right: 5px;
+}
+
+.entry-date,
+.archive-entry .date {
+    margin: 1em 0 10px 0;
+    padding: 0.2em 0 0.2em 0;
+    color: #7697d6;
+    font-size: 130%;
+    font-weight: bold;
+    font-family: "times new roman", "geogia", serif;
+    line-height: 100%;
+    border-top: 1px solid #a4abb4;
+}
+.entry-date a,
+.archive-entry .date a {
+    float: right;
+    color: #a6acbd;
+    text-decoration: none;
+    text-align: right;
+}
+
+.entry-header-menu {
+    float: right;
+    position: relative;
+    margin: -2em 0 15px 0;
+    padding: 0 0 0 12px;
+    text-align: left;
+    font-size: 80%;
+    line-height: 1.5;
+    vertical-align: top;
+    border: none;
+    color: #999;
+}
+
+ul.table-of-contents {
+    font-size: 80%;
+    margin-left: 1em !important;
+    padding: 1em 1em 1em 2em !important;
+    background-color: white;
+    border: solid 1px #999;
+    float: right;
+    border-radius: 5px;
+}
+ul.table-of-contents ul.table-of-contents {
+    font-size: inherit;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    float: none;
+    border: none;
+}
+
+/**** Archive ****/
+
+div.archive-entries {
+    margin-bottom: 4em;
+}
+
+.archive-entry {
+    padding-left: 10rem;
+}
+.archive-entry .date {
+    margin: 2em 0 0 -10rem;
+    padding: 1em 0 0 0;
+}
+.archive-entry .date a {
+    float: left;
+    text-align: left;
+}
+.archive-entry h1.entry-title {
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-size: 110%;
+}
+.archive-entry div.categories {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+.archive-entry .entry-thumb {
+    margin-left: -9rem;
+}
+
+/**** About ****/
+
+.page-about .entry-content {
+  padding: 0;
+  font-size: 110%;
+}
+.page-about dt {
+  font-size: 120%;
+  border-bottom: 1px solid #cccccc;
+  margin: 0 0 8px 0;
+  padding: 0 0 4px 0;
+  font-weight: bold;
+}
+.page-about dd {
+  margin-left: 0;
+  margin-bottom: 40px;
+}
+.page-about dd:last-child {
+  margin-bottom: 0;
+}
+
+/**** Content ****/
+
+.entry-content {
+    line-height: 1.7;
+}
+
+.entry-content h1,
+.entry-content h2,
+.entry-content h3,
+.entry-content h4,
+.entry-content h5,
+.entry-content h6 {
+    clear: none;
+    margin: 1em 0 0.5em 0;
+}
+
+.entry-content h1 {
+    font-size: 160%;
+}
+
+.entry-content h2 {
+    font-size: 150%;
+}
+
+.entry-content h3 {
+    font-size: 120%;
+}
+
+.entry-content h4 {
+    font-size: 110%;
+    margin: 2.5em 0 0.5em 0;
+    padding: 3px 3px 3px 0.5em;
+    border-left: 0.5em solid #8e949e;
+    border-bottom: 0.2em solid #8e949e;
+    border-bottom-left-radius: 3px;
+}
+
+.entry-content h5 {
+    font-size: 100%;
+    margin-top: 2em;
+    border-left: 0.5em double #8e949e;
+    padding-left: 0.5em;
+}
+
+.entry-content h6 {
+    display: inline;
+    border-bottom: 0.15em dotted #8e949e;
+    font-size: 100%;
+    padding: 0.2em 0.3em;
+}
+
+.entry-content p {
+    margin: 1.2em 0;
+}
+
+.entry-content ul {
+    list-style: disc;
+}
+.entry-content ul,
+.entry-content ol {
+    margin: 16px 0;
+    padding: 0 0 0 40px;
+}
+.entry-content ul ul,
+.entry-content ul ol,
+.entry-content ol ul,
+.entry-content ol ol,
+.entry-content dl ul,
+.entry-content dl ol {
+    margin: 0;
+}
+.entry-content ol ol {
+    list-style-type: lower-latin;
+}
+
+.entry-content dt {
+    font-weight: bold;
+    padding-bottom: 3px;
+}
+
+.entry-content dd {
+    margin-left: 1em;
+    padding-bottom: 6px;
+}
+
+.entry-content table {
+    border-collapse: collapse;
+    font-size: 90%;
+    margin: 1em 0;
+}
+
+.entry-content table th,
+.entry-content table td {
+    border: 1px solid #dfe1e3;
+    padding: 5px;
+}
+
+.entry-content table th {
+    background: #f0f1f2 none repeat scroll 0 0;
+}
+.entry-content a.keyword {
+    color: #333;
+    text-decoration: none;
+    border-bottom: none;
+    outline: none;
+    background-color: inherit !important;
+}
+
+.entry-content pre,
+.entry-content code,
+.entry-content pre.code {
+    font-family: "Menlo", monospace;
+}
+
+.entry-content pre {
+    padding: 0.5em 0.8em;
+    overflow: auto;
+    overflow-y: hidden;
+    white-space: pre-wrap;
+    font-size: 95%;
+    color: white;
+    background: none repeat scroll 0 0 #232323;
+    border: 1px solid #a4abb4;
+    border-radius: 5px;
+}
+
+.entry-content pre a,
+.entry-content pre a.keyword {
+    color: inherit;
+}
+.entry-content blockquote {
+    margin: 1em 0;
+    padding: 1em 0.8em 1.5em 0.5em;
+}
+.entry-content blockquote > * {
+    margin-left: 2.5em;
+}
+.entry-content blockquote:before {
+    display: block;
+    float: left;
+    margin-right: 0.2em;
+    content: "“";
+    font: italic 400%/1 Cochin, Georgia, "Times New Roman", serif;
+    color: #999;
+}
+.entry-content blockquote,
+.entry-content blockquote cite,
+.entry-content div.hatena-asin-detail {
+    border: 1px solid #dfe1e3;
+    border-radius: 5px;
+}
+.entry-content blockquote h1,
+.entry-content blockquote h2,
+.entry-content blockquote h3,
+.entry-content blockquote h4,
+.entry-content blockquote h5,
+.entry-content blockquote h6 {
+    clear: none;
+}
+.entry-content blockquote p {
+    margin-bottom: 0;
+}
+.entry-content blockquote p:first-child ,
+.entry-content blockquote pre:first-child {
+    margin-top: 0;
+}
+.entry-content blockquote cite {
+    font-size: 90%;
+}
+.entry-content blockquote cite {
+    float: right;
+    border: 1px solid #dfe1e3;
+    background-color: white;
+    padding: 0.2em 0.5em;
+    margin-top: 0 ! important;
+}
+
+.entry-content blockquote .name {
+    margin-bottom: 1em;
+}
+.entry-content blockquote .date {
+    float: right;
+    display: inline;
+    color: #8e949e;
+}
+
+.entry-content blockquote.epigraph {
+    border-style: none !important;
+    font-family: serif;
+    font-size: 120%;
+    margin-left: 50% !important;
+    padding: 0;
+}
+.entry-content blockquote.epigraph:before {
+    display: none;
+}
+.entry-content blockquote.epigraph > * {
+    margin-left: 0;
+}
+.entry-content blockquote.epigraph cite {
+    display: block;
+    border-color: #333333;
+    border-radius: 0;
+    border-style: solid none none none !important;
+    float: none;
+    text-align: right;
+}
+
+.entry-content div.hatena-asin-detail ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.local-pager {
+    clear: both;
+    list-style-type: none;
+    padding: 0 !important;
+}
+.local-pager li {
+    display: inline-block;
+}
+.local-pager li:first-child:before {
+    content: "＜";
+    padding-right: 0.3em;
+}
+.local-pager li:after {
+    content: "|";
+    font-weight: normal;
+    padding: 0 0.3em;
+}
+.local-pager li:last-child:after {
+    content: "＞";
+}
+.local-pager li.current {
+    font-weight: bold;
+}
+.local-pager li.current:first-child:before {
+    content: "";
+}
+.local-pager li.current:last-child:after {
+    content: "";
+}
+
+.social-buttons,
+.entry-footer-html {
+    margin: 20px 0 10px;
+}
+
+.hatena-star-container {
+    margin: 10px 0 20px;
+}
+
+html[data-page='index'] .entry-footer {
+    display: none;
+}
+
+/**** Syntax highlight ****/
+
+span.synSpecial {
+    color: #6d9cbe;
+}
+span.synType {
+    color: #bcbce8;
+}
+span.synComment {
+    color: #969896;
+}
+span.synPreProc {
+    color: #cc7833;
+}
+span.synIdentifier {
+    color: #ffc66d;
+}
+span.synConstant {
+    color: #a5c261;
+}
+span.synStatement {
+    color: #cc7833;
+}
+
+/**** Comment ****/
+
+.comment-box ul {
+    list-style: none;
+    margin: 30px 0 30px;
+    padding: 0;
+    font-size: 95%;
+    line-height: 1.7;
+}
+.comment-box li {
+    padding: 20px 0 20px 70px;
+    border-bottom: 1px solid #cccccc;
+    position: relative;
+}
+.comment-box li:first-child {
+    border-top: 1px solid #cccccc;
+}
+.comment-box .read-more-comments {
+    padding-left: 0;
+    border-bottom: none;
+}
+.comment-box .hatena-id-icon {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 50px !important;
+    height: 50px !important;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    border-radius: 3px;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+}
+.comment-user-name {
+    margin: 0 0 10px 0;
+    font-weight: bold;
+}
+.comment-content {
+    font-size: 90%;
+    margin: 0 0 10px 0;
+    word-wrap: break-word;
+}
+.comment-content p {
+    margin: 0 0 10px 0;
+}
+.comment-metadata {
+    font-size: 88%;
+    color: #abb4b7;
+    margin: 20px 0 0 0;
+}
+.comment-metadata a {
+    color: #999999;
+}
+.comment-delete-button img {
+    top: 18px !important;
+}
+.leave-comment-title {
+    background: #a5a5a5;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 88%;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    border-radius: 3px;
+}
+.leave-comment-title:hover {
+    background: #59c9bb;
+    color: #fff;
+    text-decoration: none;
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+}
+
+/**** Bookmark comment ****/
+
+.bookmark-comment-unit {
+    border-top: 1px solid #cccccc;
+    margin: 4em 0;
+    padding: 15px 0 10px;
+}
+.bookmark-comment-unit h3 {
+    background: url('http://b.hatena.ne.jp/images/v3/title-logo@2x.png') no-repeat left center / contain;
+    color: #0070d1;
+    display: inline-block;
+    font-size: 115%;
+    font-weight: normal;
+    margin: 0;
+    padding: 0 0 0 1.5em;
+}
+.bookmark-comment-unit a {
+    text-decoration: none;
+}
+.bookmark-comment-list {
+    margin: 0;
+    padding: 0;
+}
+.bookmark-comment-list li {
+    position: relative;
+    padding: 10px 8px 10px 0;
+    margin-left: 44px;
+    line-height: 1.45;
+    border-bottom: 1px solid #e3e3e3;
+    list-style: none;
+}
+.bookmark-comment-list a {
+    position: relative;
+    z-index: 2;
+}
+.bookmark-comment-list .user-icon-container {
+    display: block;
+    float: left;
+    margin: 4px 0 0 -44px;
+}
+.bookmark-comment-list .user-icon-container img.profile-image {
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+}
+.bookmark-comment-list .user-icon-container .service-icon {
+    display: inline;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border-radius: 0;
+}
+.bookmark-comment-list .user-name {
+    display: inline-block;
+    font-weight: bold;
+    margin-top: 0;
+    margin-right: 5px;
+    font-size: 14px;
+    color: #1a1a1a;
+}
+.bookmark-comment-list .user-tag,
+.bookmark-comment-list .user-timestamp {
+    font-size: 12px;
+    font-weight: normal;
+    color: #aaa;
+}
+.bookmark-comment-list .user-timestamp {
+    margin-right: 12px;
+}
+.bookmark-comment-list .user-timestamp a {
+    font-weight: normal;
+    color: inherit;
+}
+.bookmark-comment-list .user-comment-meta {
+    display: block;
+}
+.bookmark-comment-list .user-tag {
+    display: inline;
+    font-size: 12px;
+    min-height: 16px;
+    margin-left: 4px;
+}
+.bookmark-comment-list .user-comment {
+    display: inline;
+    font-size: 13px;
+    font-weight: normal;
+    word-break: break-all;
+    word-wrap: break-word;
+    color: #333;
+    border: none;
+    margin-top: 1px;
+}
+.bookmark-comment-list .user-comment a {
+    font-weight: normal;
+}
+.bookmark-comment-list .user-comment-link {
+    font-size: 12px;
+    color: #999;
+    padding-left: 16px;
+    margin: 0 8px 0 -1px;
+    background-size: 15px 15px;
+    background-repeat: no-repeat;
+    background-position: center left;
+    background-image: url('http://b.hatena.ne.jp/images/v3/comment-link.png');
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
+    .bookmark-comment-list .user-comment-link {
+        background-image: url('http://b.hatena.ne.jp/images/v3/comment-link@2x.png');
+    }
+}
+.bookmark-comment-list .hatena-star-container .meta {
+    display: none;
+}
+a.comment-share {
+    display: inline-block;
+    background-size: 18px 18px;
+    background-repeat: no-repeat;
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    margin-bottom: -3px;
+    vertical-align: text-top;
+}
+a.comment-share.twitter {
+    background-image: url('http://b.hatena.ne.jp/images/v3/comment-share-twitter.png');
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
+    a.comment-share.twitter {
+        background-image: url('http://b.hatena.ne.jp/images/v3/comment-share-twitter@2x.png');
+    }
+}
+a.comment-share.facebook {
+    background-image: url('http://b.hatena.ne.jp/images/v3/comment-share-facebook.png');
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
+    a.comment-share.facebook {
+        background-image: url('http://b.hatena.ne.jp/images/v3/comment-share-facebook@2x.png');
+    }
+}
+a.comment-share span {
+    display: none;
+}
+
+/**** Sidebar ****/
+
+#box2 {
+    line-height: 1.5;
+}
+
+.hatena-module {
+    text-align: left;
+    width: 240px;
+    float: left;
+    margin: 0 40px 60px 0;
+}
+.hatena-module-title {
+    color: #999;
+    margin: 0 0 10px 0;
+    padding: 0 0 2px 0;
+    font-size: 110%;
+    font-weight: bold;
+    border-bottom: 1px solid #cccccc;
+}
+.hatena-module-title a,
+.hatena-module-title a:visited {
+    color: #999;
+    text-decoration: none;
+    outline: none;
+}
+.hatena-urllist {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.hatena-urllist li {
+    padding: 4px 0;
+    line-height: 1.2;
+}
+
+.hatena-module-category .hatena-module-body,
+.hatena-module-category .hatena-module-body ul,
+.hatena-module-category .hatena-module-body ul li {
+    display: inline;
+}
+.hatena-module-category .hatena-module-body ul {
+    margin: 0;
+    padding: 0;
+}
+.hatena-module-category .hatena-module-body ul li {
+    margin-left: 8px;
+}
+.hatena-module-category .hatena-module-body a {
+    white-space: nowrap;
+}
+
+.hatena-module-profile .profile-icon {
+    float: left;
+    margin: 0 10px 10px 0;
+}
+.hatena-module-profile .id {
+    display: inline-block;
+    font-size: 110%;
+}
+.hatena-module-profile .profile-description {
+    font-size: 90%;
+}
+.hatena-module-profile .profile-description p {
+    margin: 0;
+}
+
+.hatena-module-search-box .search-form {
+    background: #f4f4f4;
+    width: 100%;
+    position: relative;
+    margin: 20px 0 0 0;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+.hatena-module-search-box .search-module-input {
+    padding: 8px 5px;
+    color: #4d4d4d;
+    background: none;
+    border: none;
+    outline: none;
+    height: 20px;
+    width: 90%;
+}
+.hatena-module-search-box .search-module-button {
+    width: 20px;
+    height: 20px;
+    background: transparent url('https://blog.st-hatena.com/images/theme/search.png?version=a49c433b332e2465a3ae4db92883910e') no-repeat right center;
+    border: none;
+    outline: none;
+    text-indent: -9999px;
+    position: absolute;
+    top: 8px;
+    right: 5px;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+.hatena-module-search-box .search-module-button:hover {
+    opacity: 0.85;
+    filter: alpha(opacity=85);
+}
+
+@media (max-width: 983px) {
+    html:not([data-page='archive']) .hatena-module-category,
+    html:not([data-page='archive']) .hatena-module-entries-access-ranking {
+        width: calc(95% - 255px);
+    }
+}
+
+@media (min-width: 984px) and (max-width: 1199px) {
+    html:not([data-page='archive']) .hatena-module-category,
+    html:not([data-page='archive']) .hatena-module-entries-access-ranking {
+        width: calc(45% + 180px);
+    }
+}
+
+@media (max-width: 1199px) {
+    html:not([data-page='archive']) #content-inner {
+        position: relative;
+        padding-top: 157px;
+    }
+
+    html:not([data-page='archive']) .hatena-module {
+        margin-top: 4em;
+    }
+    html:not([data-page='archive']) .hatena-urllist li {
+        padding: 0;
+        line-height: inherit;
+    }
+
+    html:not([data-page='archive']) .hatena-module-html,
+    html:not([data-page='archive']) .hatena-module-category,
+    html:not([data-page='archive']) .hatena-module-entries-access-ranking,
+    html:not([data-page='archive']) .hatena-module-profile {
+        margin: 0;
+        float: none;
+    }
+
+    html:not([data-page='archive']) .hatena-module-title a,
+    html:not([data-page='archive']) .hatena-module-body a {
+        text-decoration: none;
+    }
+
+    html:not([data-page='archive']) .hatena-module-category,
+    html:not([data-page='archive']) .hatena-module-entries-access-ranking,
+    html:not([data-page='archive']) .hatena-module-profile {
+        position: absolute;
+        line-height: 1.5;
+        overflow: hidden;
+    }
+    html:not([data-page='archive']) .hatena-module-category,
+    html:not([data-page='archive']) .hatena-module-entries-access-ranking {
+        font-size: 14px;
+    }
+    html:not([data-page='archive']) .hatena-module-category .hatena-module-title,
+    html:not([data-page='archive']) .hatena-module-entries-access-ranking .hatena-module-title a,
+    html:not([data-page='archive']) .hatena-module-profile .hatena-module-title {
+        display: inline;
+        color: white;
+        background-color: #a4abb4;
+        font-size: 14px;
+        font-weight: bold;
+        margin: 0;
+        padding: 3px 0.5em 3px 0.7em;
+        border-bottom: none;
+        border-bottom-right-radius: 5px;
+    }
+
+    html:not([data-page='archive']) .hatena-module-category {
+        top: 0;
+        max-height: 63px;
+    }
+    html:not([data-page='archive']) .hatena-module-category .hatena-module-title {
+        margin-right: 0.5em;
+    }
+    html:not([data-page='archive']) .hatena-module-category .hatena-module-body ul li {
+        padding-right: 6px;
+        border-right: 1px solid #e0e3e8;
+    }
+    html:not([data-page='archive']) .hatena-module-category .hatena-module-body ul li:last-child {
+        border-right: none;
+    }
+
+    html:not([data-page='archive']) .hatena-module-entries-access-ranking {
+        top: 67px;
+        max-height: 90px;
+    }
+    html:not([data-page='archive']) .hatena-module-entries-access-ranking .hatena-module-title {
+        border-bottom: none;
+        font-size: 14px;
+    }
+    html:not([data-page='archive']) .hatena-module-entries-access-ranking .hatena-module-title,
+    html:not([data-page='archive']) .hatena-module-entries-access-ranking .hatena-module-body ul,
+    html:not([data-page='archive']) .hatena-module-entries-access-ranking .hatena-module-body ul li,
+    html:not([data-page='archive']) .hatena-module-entries-access-ranking .hatena-module-body ul li a {
+        margin: 0;
+        padding: 0;
+    }
+    html:not([data-page='archive']) .hatena-module-entries-access-ranking .hatena-module-body ul li {
+        margin-left: 1px;
+        height: 22px;
+        border-bottom: 1px solid #e0e3e8;
+    }
+    html:not([data-page='archive']) .hatena-module-entries-access-ranking .hatena-module-body ul li div {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    html:not([data-page='archive']) .hatena-module-entries-access-ranking .hatena-module-body ul li a {
+        margin: 0 0 0 1px;
+    }
+
+    html:not([data-page='archive']) .hatena-module-profile {
+        top: 0;
+        right: 0;
+        width: 240px;
+        max-height: 157px;
+        padding-right: 15px;
+        line-height: 1.4;
+    }
+    html:not([data-page='archive']) .hatena-module-profile .hatena-module-title {
+        font-size: 100%;
+    }
+    html:not([data-page='archive']) .hatena-module-profile .hatena-module-body {
+        margin-top: 10px;
+    }
+    html:not([data-page='archive']) .hatena-module-profile .profile-description {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 1200px) {
+    #box2-inner {
+        padding-top: 35px;
+    }
+}
+
+/**** Footer ****/
+
+#footer {
+    margin: 4em auto 0 auto;
+    zoom: 1;
+    line-height: 1.5;
+    clear: both;
+}
