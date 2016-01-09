@@ -1,0 +1,151 @@
+<div class="bookmark-comment-unit" data-api="//b.hatena.ne.jp/entry/jsonlite/" data-url="{Permalink}" data-url-encoded="{URLEncodedPermalink}" style="display:none">
+  <a href="http://b.hatena.ne.jp/entry/{Permalink}"><h3>記事への反応</h3></a>
+  <ul class="bookmark-comment-list">
+    <template style="display: none">
+      <li>
+        <a data-bind="@href=user.page" class="user-icon-container">
+          <img data-bind="@src=user.icon,@alt=user.name,@title=user.name" class="profile-image" />
+        </a>
+        <a data-bind="@href=user.page,@rel=comment.path" class="user-name">
+          <span data-bind="$content=user.name"></span>
+        </a>
+        <span data-bind="$content=comment.body" class="user-comment"></span>
+        <span data-bind="$content=tag.combined" class="user-tag"></span>
+        <div class="user-comment-meta">
+          <a data-bind="@href=comment.permalink" class="user-comment-link" title="パーマリンク">
+            <span>リンク</span>
+          </a>
+          <span class="user-timestamp">
+            <a data-bind="@href=comment.url,$content=comment.timestamp"></a>
+          </span>
+            <a data-bind="@href=share.twitter" class="comment-share twitter" target="_blank" title="Twitterでシェア">
+              <span>Twitterでシェア</span>
+            </a>
+            <a data-bind="@href=share.facebook" class="comment-share facebook" target="_blank" title="Facebookでシェア">
+              <span>Facebookでシェア</span>
+            </a>
+          <span class="hatena-star-container">
+            <a data-bind="@href=star.url,$content=star.title" class="meta"></a>
+          </span>
+        </div>
+      </li>
+    </template>
+  </ul>
+  <script>
+    (function() {
+      var jsonp = (function() {
+          var count = 0;
+          return function(url, callback) {
+              var callbackName = 'anond_jsonp'+count++;
+              var head = document.querySelector('head');
+              var script = document.createElement('script');
+              script.src = url.replace(/[=]\?(&|$)/g, '='+callbackName+'$1');
+              window[callbackName] = function(data) {
+                  callback(data);
+                  window[callbackName] = undefined;
+                  try { delete window[callbackName]; } catch(e) {}
+                  head.removeChild(script);
+              };
+              head.appendChild(script);
+          };
+      })();
+      var Template = (function() {
+        var parseBindings = function(str) {
+          return str.split(/\s*,\s*/).map(function(b) { return b.split(/[=]/); });
+        };
+        var resolve = function(data, keys) {
+          return keys.split(/[.]/).reduce(function(r, x) {
+            return (r||{})[x];
+          }, data);
+        };
+        return {
+          bind: function(node, data) {
+            if (!node || !node.getAttribute) return node;
+            var bindings = parseBindings(node.getAttribute('data-bind') || '');
+            bindings.forEach(function(b) {
+              var k = b[0].substring(1);
+              var v = resolve(data, b[1] || '');
+              /^@/.test(b[0]) && node.setAttribute(k, v);
+              /^%/.test(b[0]) && ( node.style[k] = v );
+              '$content' == b[0] && node.appendChild(document.createTextNode(v));
+            });
+            for (var i=0; i < node.childNodes.length; i++) {
+              this.bind(node.childNodes[i], data);
+            }
+            return node;
+          }
+        };
+      })();
+
+      var unit = document.querySelector('.bookmark-comment-unit[data-url-encoded="{URLEncodedPermalink}"]');
+      var list = unit.querySelector('.bookmark-comment-list');
+      var tmpl = list.querySelector('template');
+      var template = ('content' in tmpl ? tmpl.content : tmpl).querySelector('li');
+      var api = unit.getAttribute('data-api');
+      var url = unit.getAttribute('data-url');
+      var bdomain = function() {
+        var args = Array.prototype.slice.apply(arguments);
+        return [ 'http://b.hatena.ne.jp' ].concat(args).join('/');
+      };
+      jsonp(api + '?url=' + encodeURIComponent(url) + '&callback=?', function(e) {
+        if (!e) return;
+        var bookmarks = e.bookmarks.filter(function(b) {
+          return (b.comment || '').length > 0;
+        });
+        if (!bookmarks.length) return;
+        unit.style.display = 'block';
+        bookmarks.forEach(function(b) {
+          var dt = new Date(b.timestamp);
+          var dtArray = [
+            dt.getFullYear(),
+            ('0'+(dt.getMonth()+1)).slice(-2),
+            ('0'+dt.getDate()).slice(-2),
+          ];
+          var path = [ '', b.user, dtArray.join('')+'#bookmark-'+e.eid ].join('/');
+          var url = 'http://b.hatena.ne.jp' + path;
+          var permalink = bdomain('entry', e.eid, 'comment', b.user);
+          var shareText = b.user + ' - 『' + e.title.substring(0, 50) + '』へのコメント';
+          var item = Template.bind(template.cloneNode(true), {
+            user: {
+              name: b.user,
+              icon: 'http://cdn1.www.st-hatena.com/users/U/profile.gif'.replace(
+                /[U]/, [ b.user.substring(0, 2), b.user ].join('/')
+              ),
+              page: bdomain(b.user) + '/',
+              plus: 'none'
+            },
+            tag: {
+              array: b.tags,
+              combined: b.tags.join(', ')
+            },
+            comment: {
+              url: url,
+              permalink: permalink,
+              timestamp: dtArray.join('/'),
+              path: path,
+              body: b.comment
+            },
+            share: {
+              twitter: [
+                'https://twitter.com/share?url=',
+                encodeURIComponent(permalink),
+                '&text=',
+                encodeURIComponent(shareText)
+              ].join(''),
+              facebook: [
+                'https://www.facebook.com/sharer.php?u=',
+                encodeURIComponent(permalink)
+              ].join('')
+            },
+            star: {
+              url: url,
+              title: b.user + 'のブックマーク'
+            }
+          });
+          item.className = 'item';
+          list.appendChild(item);
+        });
+      });
+    })();
+  </script>
+</div>
