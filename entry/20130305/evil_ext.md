@@ -1,5 +1,9 @@
 ---
 Title: ' Evil: EmacsをVimのごとく使う - 拡張編'
+Category:
+- article
+- emacs
+- evil
 Date: 2013-03-05T00:00:00+09:00
 URL: http://tarao.hatenablog.com/entry/20130305/evil_ext
 EditURL: https://blog.hatena.ne.jp/tarao/tarao.hatenablog.com/atom/entry/6653586347149235920

@@ -1,5 +1,9 @@
 ---
 Title: ' Evil: EmacsをVimのごとく使う - 設定編'
+Category:
+- article
+- emacs
+- evil
 Date: 2013-03-04T00:00:00+09:00
 URL: http://tarao.hatenablog.com/entry/20130304/evil_config
 EditURL: https://blog.hatena.ne.jp/tarao/tarao.hatenablog.com/atom/entry/6653586347149235955

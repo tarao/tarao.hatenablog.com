@@ -1,5 +1,9 @@
 ---
 Title: ' Evil: EmacsをVimのごとく使う - 付録 (カスタム変数一覧)'
+Category:
+- article
+- emacs
+- evil
 Date: 2013-03-06T00:00:00+09:00
 URL: http://tarao.hatenablog.com/entry/20130306/evil_appendix
 EditURL: https://blog.hatena.ne.jp/tarao/tarao.hatenablog.com/atom/entry/6653586347149235911
