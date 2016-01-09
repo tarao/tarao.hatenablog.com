@@ -5,100 +5,22 @@ URL: http://tarao.hatenablog.com/entry/20130304/evil_config
 EditURL: https://blog.hatena.ne.jp/tarao/tarao.hatenablog.com/atom/entry/6653586347149235955
 ---
 
-
-><blockquote class="epigraph" cite="http://www.imdb.com/title/tt0133093/" title="The Matrix">
-  Then you will see, it is not the spoon that bends, it is only yourself.
+><blockquote class="epigraph">
+  <p>Then you will see, it is not the spoon that bends, it is only yourself.</p>
+  <cite><a href="http://www.imdb.com/title/tt0133093/">The Matrix</a></cite>
 </blockquote><
 
 EmacsあるいはVimに慣れ親しんでいれば, Evilを使うのにある程度は勝手がわかるものの, 逆にしっくりこない点も多いでしょう. EvilはEmacsの機能との相互運用性を重視していることから, Vimユーザにとって不慣れな点が生じることは避けられず, EvilがVimをエミュレートする以上, Emacsユーザにとって不慣れな点が生じることも避けられません. 本稿では, どちらに慣れ親しんだユーザにとっても快適に使えるようにEvilをカスタマイズするためのヒントを紹介します. ただし, いくらカスタマイズしても完全なVimや完全なEmacsになることはありません. 使い勝手をよくして自分の好みに合わせながら, できるだけEvilのやり方に慣れていくように努めることが大切でしょう.
 =====
-><div class="toc float">
-  <h4>目次</h4>
-  <ol>
-    <li>[http://d.hatena.ne.jp/tarao/20130303/evil_intro:title=導入編]</li>
-    <li>
-      <strong>設定編</strong>
-      <ul>
-        <li>
-          <a href="#keymaps">キーマップ</a>
-          <ul>
-            <li><a href="#keymap-state-key">特定のステートでのキー</a></li>
-            <li><a href="#keymap-mode-state-key">特定のモードの特定のステートでのキー</a></li>
-            <li><a href="#keymap-misc">その他のEvilのキーマップ</a></li>
-            <li><a href="#keymap-override">ふつうのEmacsのキーマップを優先</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="#customize">カスタマイズ</a>
-          <ul>
-            <li><a href="#evil-cross-lines">evil-cross-lines</a></li>
-            <li><a href="#evil-move-cursor-back">evil-move-cursor-back</a></li>
-            <li><a href="#evil-want-C-i-jump">evil-want-C-i-jump</a></li>
-            <li><a href="#evil-search-module">evil-search-module</a></li>
-            <li><a href="#evil-ex-search-vim-style-regexp">evil-ex-search-vim-style-regexp</a></li>
-            <li><a href="#evil-esc-delay">evil-esc-delay</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="#emacs">Emacsの機能との共存</a>
-          <ul>
-            <li><a href="#emacs-states">モードごとのデフォルトのステート</a></li>
-            <li><a href="#emacs-evilize">EmacsのコマンドをEvil化</a></li>
-            <li><a href="#emacs-case-skk">事例紹介: SKKとの共存</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="#vim">Vimの再現性を高める</a>
-          <ul>
-            <li><a href="#vim-customize">カスタマイズ</a></li>
-            <li><a href="#vim-show-paren">括弧の対応をハイライト</a></li>
-            <li><a href="#vim-eof">バッファの終端を明示</a></li>
-            <li><a href="#vim-final-newline">ファイル末尾で必ず改行</a></li>
-            <li><a href="#vim-word">単語境界をVim互換に</a></li>
-            <li><a href="#vim-c-c"><code>C-c</code>を<code>ESC</code>に, <code>C-c</code>/<code>ESC</code>でキャンセル</a></li>
-            <li><a href="#vim-number"><code>C-a</code>/<code>C-x</code>でインクリメント/デクリメント</a></li>
-            <li><a href="#vim-mapleader"><code>mapleader</code></a></li>
-            <li><a href="#vim-commandline-registers">コマンドラインでレジスタから貼り付け</a></li>
-            <li><a href="#vim-tabpage">タブページ</a></li>
-            <li><a href="#vim-set-listchars"><code>set listchars</code></a></li>
-            <li><a href="#vim-set-tabstop"><code>set tabstop</code></a></li>
-            <li><a href="#vim-set-expandtab"><code>set expandtab</code></a></li>
-            <li><a href="#vim-set-statusline"><code>set statusline</code></a></li>
-            <li><a href="#vim-set-number"><code>set number</code></a></li>
-            <li><a href="#vim-color">色テーマ</a></li>
-            <li><a href="#vim-modeline">モードライン</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="#misc">その他のべんり設定</a>
-          <ul>
-            <li><a href="#misc-physical-line">物理行移動と論理行移動を入れ替え</a></li>
-            <li><a href="#misc-yank-pop"><code>C-n</code>/<code>C-p</code>をハイブリッドに</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="#plugins">プラグイン</a>
-          <ul>
-            <li><a href="#plugin-evil-mode-line">evil-mode-line</a></li>
-            <li><a href="#plugin-evil-surround">evil-surround</a></li>
-            <li><a href="#plugin-evil-nerd-commenter">evil-nerd-commenter</a></li>
-            <li><a href="#plugin-evil-operator-comment">evil-operator-comment</a></li>
-            <li><a href="#plugin-evil-operator-moccur">evil-operator-moccur</a></li>
-            <li><a href="#plugin-evil-relative-linum">evil-relative-linum</a></li>
-            <li><a href="#plugin-evil-little-word">evil-little-word</a></li>
-            <li><a href="#plugin-evil-textobj-between">evil-textobj-between</a></li>
-            <li><a href="#plugin-evil-paredit">evil-paredit</a></li>
-            <li><a href="#plugin-evil-rails">evil-rails</a></li>
-            <li><a href="#plugin-hexl-evil-patch">hexl-evil-patch</a></li>
-          </ul>
-        </li>
-        <li><a href="#user-config">参考になりそうな個人設定</a></li>
-      </ul>
-    </li>
-    <li>[http://d.hatena.ne.jp/tarao/20130305/evil_ext:title=拡張編]</li>
-    <li>[http://d.hatena.ne.jp/tarao/20130306/evil_appendix:title=付録]</li>
-  </ol>
-</div><
+><ul class="table-of-contents top">
+  <li>[http://tarao.hatenablog.com/entry/20130303/evil_intro:title=導入編]</li>
+  <li>
+    <strong>設定編</strong>
+[:contents]
+  </li>
+  <li>[http://tarao.hatenablog.com/entry/20130305/evil_ext:title=拡張編]</li>
+  <li>[http://tarao.hatenablog.com/entry/20130306/evil_appendix:title=付録]</li>
+</ul><
 
 ><style type="text/css">
 h4 {
@@ -109,35 +31,34 @@ h5.custom {
    clear: left;
 }
 h5.custom + dl {
-   float: left;
-   font-size: 85%;
    display: inline-block;
+   float: left;
+   font-size: 14px;
    border: 4px solid #cccccc;
    border-radius: 5px;
    padding: 0.4em;
    margin: 0 1em 2em 0 !important;
-   -moz-border-radius: 5px;
-   -webkit-border-radius: 5px;
 }
 h5.custom + dl dt {
+   height: 24px;
+   width: 6em;
    padding: 0 !important;
    word-break: keep-all;
-   width: 6em;
    float: left;
    clear: left;
 }
 h5.custom + dl dd {
-   min-height: 1.2rem;
-   margin-left: 0 !important;
+   min-height: 24px;
    width: 12em;
+   margin-left: 0 !important;
    padding: 0 0 0 6em !important;
-   font-family: monospace;
    border-bottom: 1px solid #cccccc;
+   font-family: monospace;
 }
 h5.custom + dl dd:last-child {
    border-style: none !important;
 }
-.body .section dl + p {
+h5.custom + dl + p {
    margin-top: 0 !important;
 }
 .hatena-image-right {
@@ -860,8 +781,8 @@ emacs -q -l init.el
 本稿にレビューコメントを寄せて下さったid:hakobe932:detailさんに感謝いたします.
 
 ><ol class="local-pager">
-   <li>[http://d.hatena.ne.jp/tarao/20130303/evil_intro:title=導入編]</li>
+   <li>[http://tarao.hatenablog.com/entry/20130303/evil_intro:title=導入編]</li>
    <li class="current">設定編</li>
-   <li>[http://d.hatena.ne.jp/tarao/20130305/evil_ext:title=拡張編]</li>
-   <li>[http://d.hatena.ne.jp/tarao/20130306/evil_appendix:title=付録]</li>
+   <li>[http://tarao.hatenablog.com/entry/20130305/evil_ext:title=拡張編]</li>
+   <li>[http://tarao.hatenablog.com/entry/20130306/evil_appendix:title=付録]</li>
 </ol><

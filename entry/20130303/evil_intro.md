@@ -5,10 +5,9 @@ URL: http://tarao.hatenablog.com/entry/20130303/evil_intro
 EditURL: https://blog.hatena.ne.jp/tarao/tarao.hatenablog.com/atom/entry/6653586347149235984
 ---
 
-
-
-><blockquote class="epigraph" cite="http://starwars.com/explore/the-movies/episode-vi/" title="Star Wars: Episode VI - Return of the Jedi">
-  You underestimate the power of the dark side.
+><blockquote class="epigraph">
+  <p>You underestimate the power of the dark side.</p>
+  <cite><a href="http://starwars.com/explore/the-movies/episode-vi/">Star Wars: Episode VI - Return of the Jedi</a></cite>
 </blockquote><
 
 EmacsはLispで自由自在に拡張でき, エディタの枠におさまらず, コンピュータ上でのあらゆる創造的活動のための環境として発達してきました. しかし, 少なくともファイルを閲覧し編集するという操作に関しては, vi/Vimが非常に優れたインタフェースであることもまた事実です. 両者はそれぞれが根強いファンを抱え, 長らく宗教戦争を繰り返してきました.
@@ -17,51 +16,15 @@ EmacsはLispで自由自在に拡張でき, エディタの枠におさまらず
 
 本稿では, Evilとは何かということに始まり, 具体的な導入方法について解説します.
 =====
-><div class="toc float">
-  <h4>目次</h4>
-  <ol>
-    <li>
-      <strong>導入編</strong>
-      <ul>
-        <li><a href="#history">歴史</a></li>
-        <li>
-          <a href="#design">設計思想</a>
-          <ul>
-            <li><a href="#design-extensibility">高い拡張性の確保</a></li>
-            <li><a href="#design-interoperability">Emacsの機能とうまく共存</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="#install">インストール</a>
-          <ul>
-            <li><a href="#install-novice">とにかくお試し</a></li>
-            <li><a href="#install-release">リリース版のインストール</a></li>
-            <li><a href="#install-enable">起動時に有効化</a></li>
-            <li><a href="#install-devel">開発版のインストール</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="#usage">使い方</a>
-          <ul>
-            <li><a href="#usage-emacs">Emacsからの移民もしくはvi/Vim初心者</a></li>
-            <li><a href="#usage-vim">Vimからの移民</a></li>
-          </ul>
-        </li>
-        <li><a href="#support">サポート等</a></li>
-      </ul>
-    </li>
-    <li>[http://d.hatena.ne.jp/tarao/20130304/evil_config:title=設定編]</li>
-    <li>[http://d.hatena.ne.jp/tarao/20130305/evil_ext:title=拡張編]</li>
-    <li>[http://d.hatena.ne.jp/tarao/20130306/evil_appendix:title=付録]</li>
-  </ol>
-</div><
-
-><!--
-|2012-03-03|evil_intro|
-|2012-03-04|evil_config|
-|2012-03-05|evil_ext|
-|2012-03-06|evil_appendix|
---><
+><ul class="table-of-contents">
+  <li>
+    <strong>導入編</strong>
+[:contents]
+  </li>
+  <li>[http://tarao.hatenablog.com/entry/20130304/evil_config:title=設定編]</li>
+  <li>[http://tarao.hatenablog.com/entry/20130305/evil_ext:title=拡張編]</li>
+  <li>[http://tarao.hatenablog.com/entry/20130306/evil_appendix:title=付録]</li>
+</ul><
 
 ><h4 id="history">歴史</h4><
 
@@ -350,7 +313,7 @@ EvilはEmacs上でVimをエミュレートするためのプロジェクトで�
 
 ><ol class="local-pager">
    <li class="current">導入編</li>
-   <li>[http://d.hatena.ne.jp/tarao/20130304/evil_config:title=設定編]</li>
-   <li>[http://d.hatena.ne.jp/tarao/20130305/evil_ext:title=拡張編]</li>
-   <li>[http://d.hatena.ne.jp/tarao/20130306/evil_appendix:title=付録]</li>
+   <li>[http://tarao.hatenablog.com/entry/20130304/evil_config:title=設定編]</li>
+   <li>[http://tarao.hatenablog.com/entry/20130305/evil_ext:title=拡張編]</li>
+   <li>[http://tarao.hatenablog.com/entry/20130306/evil_appendix:title=付録]</li>
 </ol><

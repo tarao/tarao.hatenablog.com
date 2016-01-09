@@ -5,69 +5,22 @@ URL: http://tarao.hatenablog.com/entry/20130305/evil_ext
 EditURL: https://blog.hatena.ne.jp/tarao/tarao.hatenablog.com/atom/entry/6653586347149235920
 ---
 
-><blockquote class="epigraph" cite="http://www.imdb.com/title/tt0088763/" title="Back to the Future">
-  Roads? Where we're going we don't need roads.
+><blockquote class="epigraph">
+  <p>Roads? Where we're going we don't need roads.</p>
+  <cite><a href="http://www.imdb.com/title/tt0088763/">Back to the Future</a></cite>
 </blockquote><
 
 Evilの真髄はその拡張性です. 本稿では主にチュートリアルを通して, Evilを拡張する方法を解説します.
 =====
-><div class="toc float">
-  <h4>目次</h4>
-  <ol>
-    <li>[http://d.hatena.ne.jp/tarao/20130303/evil_intro:title=導入編]</li>
-    <li>[http://d.hatena.ne.jp/tarao/20130304/evil_config:title=設定編]</li>
-    <li>
-      <strong>拡張編</strong>
-      <ul>
-        <li><a href="#overview">Evilの拡張</a></li>
-        <li>
-          <a href="#tutorial1">例1: コメントアウトオペレータ</a>
-          <ul>
-            <li><a href="#tutorial1-simple">単純な選択範囲のコメントアウト</a></li>
-            <li><a href="#tutorial1-blockwise">矩形選択範囲のコメントアウト</a></li>
-            <li><a href="#tutorial1-keymap">キーマップ</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="#tutorial2">例2: 次のシンボルへ移動するモーション</a>
-          <ul>
-            <li><a href="#tutorial2-motion">モーションの定義</a></li>
-            <li><a href="#tutorial2-text-object">テキストオブジェクト</a></li>
-            <li><a href="#tutorial2-keymap">キーマップ</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="#tutorial3">例3: 同じ文字の間を表すオブジェクト</a>
-          <ul>
-            <li><a href="#tutorial3-simple">単純な実装</a></li>
-            <li><a href="#tutorial3-extend">選択範囲の拡大</a></li>
-            <li><a href="#tutorial3-keymap">キーマップ</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="#tutorial4">例4: かなステート</a>
-          <ul>
-            <li><a href="#tutorial4-state">ステートの定義</a></li>
-            <li><a href="#tutorial4-command">かな変換コマンド</a></li>
-            <li><a href="#tutorial4-keymap">キーマップ</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="#reference">リファレンス</a>
-          <ul>
-            <li><a href="#reference-state">ステート</a></li>
-            <li><a href="#reference-command">コマンド</a></li>
-            <li><a href="#reference-operator">オペレータ</a></li>
-            <li><a href="#reference-motion">モーション</a></li>
-            <li><a href="#reference-text-object">テキストオブジェクト</a></li>
-            <li><a href="#reference-utility">補助関数</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li>[http://d.hatena.ne.jp/tarao/20130306/evil_appendix:title=付録]</li>
-  </ol>
-</div><
+><ul class="table-of-contents top">
+  <li>[http://tarao.hatenablog.com/entry/20130303/evil_intro:title=導入編]</li>
+  <li>[http://tarao.hatenablog.com/entry/20130304/evil_config:title=設定編]</li>
+  <li>
+    <strong>拡張編</strong>
+[:contents]
+  </li>
+  <li>[http://tarao.hatenablog.com/entry/20130306/evil_appendix:title=付録]</li>
+</ul><
 
 ><style type="text/css">
 .selection {
@@ -511,8 +464,8 @@ Emacsにはもともと<code>forward-symbol</code>(thingatpointパッケージ)�
 Evilの拡張方法を修得すれば, ますますEvilを自由に使うことができます. また, 拡張機能を書いていくことでEvilの内部のしくみにも詳しくなります. 一通り理解が深まったら, ぜひEvilのプラグインの開発, 本家Evilの開発への参加を目指してみて下さい.
 
 ><ol class="local-pager">
-   <li>[http://d.hatena.ne.jp/tarao/20130303/evil_intro:title=導入編]</li>
-   <li>[http://d.hatena.ne.jp/tarao/20130304/evil_config:title=設定編]</li>
+   <li>[http://tarao.hatenablog.com/entry/20130303/evil_intro:title=導入編]</li>
+   <li>[http://tarao.hatenablog.com/entry/20130304/evil_config:title=設定編]</li>
    <li class="current">拡張編</li>
-   <li>[http://d.hatena.ne.jp/tarao/20130306/evil_appendix:title=付録]</li>
+   <li>[http://tarao.hatenablog.com/entry/20130306/evil_appendix:title=付録]</li>
 </ol><

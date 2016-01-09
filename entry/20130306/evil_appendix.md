@@ -8,84 +8,15 @@ EditURL: https://blog.hatena.ne.jp/tarao/tarao.hatenablog.com/atom/entry/6653586
 Evilのカスタム変数の一覧です.
 
 =====
-><div class="toc float">
-  <h4>目次</h4>
-  <ol>
-    <li>[http://d.hatena.ne.jp/tarao/20130303/evil_intro:title=導入編]</li>
-    <li>[http://d.hatena.ne.jp/tarao/20130304/evil_config:title=設定編]</li>
-    <li>[http://d.hatena.ne.jp/tarao/20130305/evil_ext:title=拡張編]</li>
-    <li>
-      <strong>付録 (カスタム変数一覧)</strong>
-      <ul>
-        <li><a href="#evil-auto-indent">evil-auto-indent</a></li>
-        <li><a href="#evil-shift-width">evil-shift-width</a></li>
-        <li><a href="#evil-shift-round">evil-shift-round</a></li>
-        <li><a href="#evil-cross-lines">evil-cross-lines</a></li>
-        <li><a href="#evil-move-cursor-back">evil-move-cursor-back</a></li>
-        <li><a href="#evil-repeat-move-cursor">evil-repeat-move-cursor</a></li>
-        <li><a href="#evil-kbd-macro-suppress-motion-error">evil-kbd-macro-suppress-motion-error</a></li>
-        <li><a href="#evil-track-eol">evil-track-eol</a></li>
-        <li><a href="#evil-bigword">evil-bigword</a></li>
-        <li><a href="#evil-mouse-word">evil-mouse-word</a></li>
-        <li><a href="#evil-cjk-emacs-word-boundary">evil-cjk-emacs-word-boundary</a></li>
-        <li><a href="#evil-cjk-word-separating-categories">evil-cjk-word-separating-categories</a></li>
-        <li><a href="#evil-cjk-word-combining-categories">evil-cjk-word-combining-categories</a></li>
-        <li><a href="#evil-want-fine-undo">evil-want-fine-undo</a></li>
-        <li><a href="#evil-want-change-word-to-end">evil-want-change-word-to-end</a></li>
-        <li><a href="#evil-want-C-i-jump">evil-want-C-i-jump</a></li>
-        <li><a href="#evil-want-C-u-scroll">evil-want-C-u-scroll</a></li>
-        <li><a href="#evil-want-C-w-delete">evil-want-C-w-delete</a></li>
-        <li><a href="#evil-want-C-w-in-emacs-state">evil-want-C-w-in-emacs-state</a></li>
-        <li><a href="#evil-want-visual-char-semi-exclusive">evil-want-visual-char-semi-exclusive</a></li>
-        <li><a href="#evil-show-paren-range">evil-show-paren-range</a></li>
-        <li><a href="#evil-highlight-closing-paren-at-point-states">evil-highlight-closing-paren-at-point-states</a></li>
-        <li><a href="#evil-search-module">evil-search-module</a></li>
-        <li><a href="#evil-regexp-search">evil-regexp-search</a></li>
-        <li><a href="#evil-search-wrap">evil-search-wrap</a></li>
-        <li><a href="#evil-flash-delay">evil-flash-delay</a></li>
-        <li><a href="#evil-symbol-word-search">evil-symbol-word-search</a></li>
-        <li><a href="#evil-magic">evil-magic</a></li>
-        <li><a href="#evil-ex-search-case">evil-ex-search-case</a></li>
-        <li><a href="#evil-ex-search-vim-style-regexp">evil-ex-search-vim-style-regexp</a></li>
-        <li><a href="#evil-ex-hl-update-delay">evil-ex-hl-update-delay</a></li>
-        <li><a href="#evil-ex-search-interactive">evil-ex-search-interactive</a></li>
-        <li><a href="#evil-ex-search-highlight-all">evil-ex-search-highlight-all</a></li>
-        <li><a href="#evil-ex-interactive-search-highlight">evil-ex-interactive-search-highlight</a></li>
-        <li><a href="#evil-ex-substitute-case">evil-ex-substitute-case</a></li>
-        <li><a href="#evil-ex-substitute-global">evil-ex-substitute-global</a></li>
-        <li><a href="#evil-ex-substitute-highlight-all">evil-ex-substitute-highlight-all</a></li>
-        <li><a href="#evil-ex-substitute-interactive-replace">evil-ex-substitute-interactive-replace</a></li>
-        <li><a href="#evil-ex-visual-char-range">evil-ex-visual-char-range</a></li>
-        <li><a href="#evil-ex-complete-emacs-commands">evil-ex-complete-emacs-commands</a></li>
-        <li><a href="#evil-complete-all-buffers">evil-complete-all-buffers</a></li>
-        <li><a href="#evil-complete-next-func">evil-complete-next-func</a></li>
-        <li><a href="#evil-complete-previous-func">evil-complete-previous-func</a></li>
-        <li><a href="#evil-complete-next-minibuffer-func">evil-complete-next-minibuffer-func</a></li>
-        <li><a href="#evil-complete-previous-minibuffer-func">evil-complete-previous-minibuffer-func</a></li>
-        <li><a href="#evil-complete-next-line-func">evil-complete-next-line-func</a></li>
-        <li><a href="#evil-complete-previous-line-func">evil-complete-previous-line-func</a></li>
-        <li><a href="#evil-lookup-func">evil-lookup-func</a></li>
-        <li><a href="#evil-default-cursor">evil-default-cursor</a></li>
-        <li><a href="#evil-mode-line-format">evil-mode-line-format</a></li>
-        <li><a href="#evil-echo-state">evil-echo-state</a></li>
-        <li><a href="#evil-fold-level">evil-fold-level</a></li>
-        <li><a href="#evil-auto-balance-windows">evil-auto-balance-windows</a></li>
-        <li><a href="#evil-esc-delay">evil-esc-delay</a></li>
-        <li><a href="#evil-intercept-esc">evil-intercept-esc</a></li>
-        <li><a href="#evil-toggle-key">evil-toggle-key</a></li>
-        <li><a href="#evil-default-state">evil-default-state</a></li>
-        <li><a href="#evil-buffer-regexps">evil-buffer-regexps</a></li>
-        <li><a href="#evil-emacs-state-modes">evil-emacs-state-modes</a></li>
-        <li><a href="#evil-insert-state-modes">evil-insert-state-modes</a></li>
-        <li><a href="#evil-motion-state-modes">evil-motion-state-modes</a></li>
-        <li><a href="#evil-overriding-maps">evil-overriding-maps</a></li>
-        <li><a href="#evil-intercept-maps">evil-intercept-maps</a></li>
-        <li><a href="#evil-motions">evil-motions</a></li>
-        <li><a href="#evil-visual-newline-commands">evil-visual-newline-commands</a></li>
-      </ul>
-    </li>
-  </ol>
-</div><
+><ul class="table-of-contents top">
+  <li>[http://tarao.hatenablog.com/entry/20130303/evil_intro:title=導入編]</li>
+  <li>[http://tarao.hatenablog.com/entry/20130304/evil_config:title=設定編]</li>
+  <li>[http://tarao.hatenablog.com/entry/20130305/evil_ext:title=拡張編]</li>
+  <li>
+    <strong>付録</strong>
+[:contents]
+  </li>
+</ul><
 
 ><style type="text/css">
 h4 {
@@ -96,35 +27,34 @@ h5.custom {
    clear: left;
 }
 h5.custom + dl {
-   float: left;
-   font-size: 85%;
    display: inline-block;
+   float: left;
+   font-size: 14px;
    border: 4px solid #cccccc;
    border-radius: 5px;
    padding: 0.4em;
    margin: 0 1em 2em 0 !important;
-   -moz-border-radius: 5px;
-   -webkit-border-radius: 5px;
 }
 h5.custom + dl dt {
+   height: 24px;
+   width: 6em;
    padding: 0 !important;
    word-break: keep-all;
-   width: 6em;
    float: left;
    clear: left;
 }
 h5.custom + dl dd {
-   min-height: 1.2rem;
-   margin-left: 0 !important;
+   min-height: 24px;
    width: 12em;
+   margin-left: 0 !important;
    padding: 0 0 0 6em !important;
-   font-family: monospace;
    border-bottom: 1px solid #cccccc;
+   font-family: monospace;
 }
 h5.custom + dl dd:last-child {
    border-style: none !important;
 }
-.body .section dl + p {
+h5.custom + dl + p {
    margin-top: 0 !important;
 }
 .hatena-image-right {
@@ -386,7 +316,7 @@ Emacsステートでも<code>C-w</code>をウィンドウ移動コマンドに�
 
 検索パターンで使える特殊文字の範囲. この範囲に含まれている文字は, <code>\</code>をつけない限り特殊文字として扱われます. また, このオプションを変更しなくても, Vim同様, 検索パターン中に<code>\v</code>, <code>\m</code>, <code>\M</code>, <code>\V</code>のいずれかのトークンが現れると, それ以降のパターンでは特殊文字の範囲が切り替わります(ただしこれらのトークン自身に関しては変わりません). 設定値と範囲, トークン, Vimのオプションの対応は以下の通りです.
 |*設定値|*トークン|*Vimオプション|*範囲|
-|<code>very-magic</code>|<code>\v<code>| |<code>0-9A-Za-z_</code>以外|
+|<code>very-magic</code>|<code>\v</code>| |<code>0-9A-Za-z_</code>以外|
 |<code>t</code>|<code>\m</code>|<code>magic</code>|<code>][{}*+?.&~$^</code>|
 |<code>nil</code>|<code>\M</code>|<code>nomagic</code>|<code>][}{*+?$^</code>|
 |<code>very-nomagic</code>|<code>\V</code>| |<code>\</code>|
@@ -726,8 +656,8 @@ Evilのキーバインドを遮るキーマップの連想配列. キーには�
 選択範囲に対するコマンドのうち, 末尾の改行を含めてはいけないもののリスト. 行選択で末尾に改行が含まれるとうまく動作しない場合はこのリストに追加するとよいでしょう.
 
 ><ol class="local-pager">
-   <li>[http://d.hatena.ne.jp/tarao/20130303/evil_intro:title=導入編]</li>
-   <li>[http://d.hatena.ne.jp/tarao/20130304/evil_config:title=設定編]</li>
-   <li>[http://d.hatena.ne.jp/tarao/20130305/evil_ext:title=拡張編]</li>
+   <li>[http://tarao.hatenablog.com/entry/20130303/evil_intro:title=導入編]</li>
+   <li>[http://tarao.hatenablog.com/entry/20130304/evil_config:title=設定編]</li>
+   <li>[http://tarao.hatenablog.com/entry/20130305/evil_ext:title=拡張編]</li>
    <li class="current">付録</li>
 </ol><
