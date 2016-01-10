@@ -549,6 +549,7 @@ div.archive-entries {
     border-style: solid none none none !important;
     float: none;
     text-align: right;
+    margin-top: 0.5em !important;
 }
 
 .entry-content div.hatena-asin-detail ul {
