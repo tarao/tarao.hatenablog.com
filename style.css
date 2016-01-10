@@ -972,14 +972,14 @@ a.comment-share span {
 
 @media (max-width: 983px) {
     html:not([data-page='archive']) .hatena-module-category,
-    html:not([data-page='archive']) .hatena-module-entries-access-ranking {
+    html:not([data-page='archive']) .hatena-module-entries-access-ranking[data-source='recent_bookmark'] {
         width: calc(95% - 255px);
     }
 }
 
 @media (min-width: 984px) and (max-width: 1199px) {
     html:not([data-page='archive']) .hatena-module-category,
-    html:not([data-page='archive']) .hatena-module-entries-access-ranking {
+    html:not([data-page='archive']) .hatena-module-entries-access-ranking[data-source='recent_bookmark'] {
         width: calc(45% + 180px);
     }
 }
@@ -1000,7 +1000,7 @@ a.comment-share span {
 
     html:not([data-page='archive']) .hatena-module-html,
     html:not([data-page='archive']) .hatena-module-category,
-    html:not([data-page='archive']) .hatena-module-entries-access-ranking,
+    html:not([data-page='archive']) .hatena-module-entries-access-ranking[data-source='recent_bookmark'],
     html:not([data-page='archive']) .hatena-module-profile {
         margin: 0;
         float: none;
@@ -1012,18 +1012,18 @@ a.comment-share span {
     }
 
     html:not([data-page='archive']) .hatena-module-category,
-    html:not([data-page='archive']) .hatena-module-entries-access-ranking,
+    html:not([data-page='archive']) .hatena-module-entries-access-ranking[data-source='recent_bookmark'],
     html:not([data-page='archive']) .hatena-module-profile {
         position: absolute;
         line-height: 1.5;
         overflow: hidden;
     }
     html:not([data-page='archive']) .hatena-module-category,
-    html:not([data-page='archive']) .hatena-module-entries-access-ranking {
+    html:not([data-page='archive']) .hatena-module-entries-access-ranking[data-source='recent_bookmark'] {
         font-size: 14px;
     }
     html:not([data-page='archive']) .hatena-module-category .hatena-module-title,
-    html:not([data-page='archive']) .hatena-module-entries-access-ranking .hatena-module-title a,
+    html:not([data-page='archive']) .hatena-module-entries-access-ranking[data-source='recent_bookmark'] .hatena-module-title a,
     html:not([data-page='archive']) .hatena-module-profile .hatena-module-title {
         display: inline;
         color: white;
@@ -1051,32 +1051,32 @@ a.comment-share span {
         border-right: none;
     }
 
-    html:not([data-page='archive']) .hatena-module-entries-access-ranking {
+    html:not([data-page='archive']) .hatena-module-entries-access-ranking[data-source='recent_bookmark'] {
         top: 67px;
         max-height: 90px;
     }
-    html:not([data-page='archive']) .hatena-module-entries-access-ranking .hatena-module-title {
+    html:not([data-page='archive']) .hatena-module-entries-access-ranking[data-source='recent_bookmark'] .hatena-module-title {
         border-bottom: none;
         font-size: 14px;
     }
-    html:not([data-page='archive']) .hatena-module-entries-access-ranking .hatena-module-title,
-    html:not([data-page='archive']) .hatena-module-entries-access-ranking .hatena-module-body ul,
-    html:not([data-page='archive']) .hatena-module-entries-access-ranking .hatena-module-body ul li,
-    html:not([data-page='archive']) .hatena-module-entries-access-ranking .hatena-module-body ul li a {
+    html:not([data-page='archive']) .hatena-module-entries-access-ranking[data-source='recent_bookmark'] .hatena-module-title,
+    html:not([data-page='archive']) .hatena-module-entries-access-ranking[data-source='recent_bookmark'] .hatena-module-body ul,
+    html:not([data-page='archive']) .hatena-module-entries-access-ranking[data-source='recent_bookmark'] .hatena-module-body ul li,
+    html:not([data-page='archive']) .hatena-module-entries-access-ranking[data-source='recent_bookmark'] .hatena-module-body ul li a {
         margin: 0;
         padding: 0;
     }
-    html:not([data-page='archive']) .hatena-module-entries-access-ranking .hatena-module-body ul li {
+    html:not([data-page='archive']) .hatena-module-entries-access-ranking[data-source='recent_bookmark'] .hatena-module-body ul li {
         margin-left: 1px;
         height: 22px;
         border-bottom: 1px solid #e0e3e8;
     }
-    html:not([data-page='archive']) .hatena-module-entries-access-ranking .hatena-module-body ul li div {
+    html:not([data-page='archive']) .hatena-module-entries-access-ranking[data-source='recent_bookmark'] .hatena-module-body ul li div {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
     }
-    html:not([data-page='archive']) .hatena-module-entries-access-ranking .hatena-module-body ul li a {
+    html:not([data-page='archive']) .hatena-module-entries-access-ranking[data-source='recent_bookmark'] .hatena-module-body ul li a {
         margin: 0 0 0 1px;
     }
 
