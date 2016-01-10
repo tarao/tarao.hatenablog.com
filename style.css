@@ -1,20 +1,3 @@
-/* TODO
- * - content fix
- *   - broken footnotes
- *     - http://tarao.hatenablog.com/entry/20110819/1313759600
- *     - http://tarao.hatenablog.com/entry/20120711/1341969567
- *     - http://tarao.hatenablog.com/entry/20130303/evil_intro
- *     - http://tarao.hatenablog.com/entry/20130304/evil_config
- *     - http://tarao.hatenablog.com/entry/20131212/1386859873
- *     - http://tarao.hatenablog.com/entry/20150221/1424518030
- *     - http://tarao.hatenablog.com/entry/20150815/1439649780
- *   - embed
- *   - <blockquote>
- *     - http://html5doctor.com/cite-and-blockquote-reloaded/
- *     - http://www.w3.org/TR/html5/grouping-content.html#the-blockquote-element
- * - remove mock
- */
-
 /**** Global ****/
 
 body {
