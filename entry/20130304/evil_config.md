@@ -90,7 +90,7 @@ Emacsのキーマップは階層化されていて, あるキーを押したと�
 
 ふつうのメジャーモードのキーマップは<code>(current-local-map)</code>, マイナーモードのキーマップは<code>minor-mode-map-alist</code>に設定されています. そして<code>minor-mode-overriding-map-alist</code>は, メジャーモードがマイナーモードのキーマップよりも優先するキーを設定するためにあります.
 
-Evilは内部的にはマイナーモードで実装されていますが, その役割はEmacs全体のキー操作を根本から変えるものであるため, ふつうのメジャーモードやマイナーモードよりも優先してキーを受け取れなければなりません. このため, Evilに関するキーはすべて<code>emulation-mode-map-alists</code>に設定され((<code>emulation-mode-map-alists</code>はViperの頃から使われているキーマップ層で, まさにこのような用途のためにあります)), ふつうのメジャーモードやマイナーモードよりもEvilのキーの方が基本的には優先されます. 逆に, Evilのキーが他のキーバインドに奪われてしまう場合は, <code>emulation-mode-map-alists</code>よりも上位の層にそのキーがないか確認するとよいでしょう. たとえば, カーソル位置の文字の<code>keymap</code>プロパティが設定されている場合はこれが優先されることを知らないと, このキーマップの存在に思い至ることすら困難です.
+Evilは内部的にはマイナーモードで実装されていますが, その役割はEmacs全体のキー操作を根本から変えるものであるため, ふつうのメジャーモードやマイナーモードよりも優先してキーを受け取れなければなりません. このため, Evilに関するキーはすべて<code>emulation-mode-map-alists</code>に設定され((emulation-mode-map-alistsはViperの頃から使われているキーマップ層で, まさにこのような用途のためにあります)), ふつうのメジャーモードやマイナーモードよりもEvilのキーの方が基本的には優先されます. 逆に, Evilのキーが他のキーバインドに奪われてしまう場合は, <code>emulation-mode-map-alists</code>よりも上位の層にそのキーがないか確認するとよいでしょう. たとえば, カーソル位置の文字の<code>keymap</code>プロパティが設定されている場合はこれが優先されることを知らないと, このキーマップの存在に思い至ることすら困難です.
 
 ><h5 id="keymap-state-key">特定のステートでのキー</h5><
 
@@ -543,7 +543,7 @@ color-themeは, [http://melpa.milkbox.net/:title=MELPA]を使っている場合�
 (color-theme-dark-laptop) ; テーマdark-laptopを適用
 ||<
 
-カスタムテーマを使うには, <code>load-theme</code>コマンドを使います. デフォルトで提供されているテーマか, 自分で<code>~/.emacs.d/</code>((正確には<code>custom-theme-directory</code>の値が表すディレクトリ))に保存した<code><var>name</var>-theme.el</code>ファイルを読み込むことができます. 設定ファイルに書く場合は以下のようにします.
+カスタムテーマを使うには, <code>load-theme</code>コマンドを使います. デフォルトで提供されているテーマか, 自分で<code>~/.emacs.d/</code>((正確にはcustom-theme-directoryの値が表すディレクトリ))に保存した<code><var>name</var>-theme.el</code>ファイルを読み込むことができます. 設定ファイルに書く場合は以下のようにします.
 >|lisp|
 (load-theme 'zenburn t) ; テーマzenburnを適用
 ||<
