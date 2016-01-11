@@ -95,7 +95,7 @@ I completely agree that we should not focus on 100% vim compatibility (even some
 
 ><h4 id="install">インストール</h4><
 
-それではEvilをインストールしてみましょう. Evilは(いまのところ)標準パッケージではないので, 自分でインストールする必要があります. ここではインストール方法と, Evilを有効化する設定について説明します. それ以外の細かい設定については[http://d.hatena.ne.jp/tarao/20130304/evil_config:title=設定編]を見て下さい.
+それではEvilをインストールしてみましょう. Evilは(いまのところ)標準パッケージではないので, 自分でインストールする必要があります. ここではインストール方法と, Evilを有効化する設定について説明します. それ以外の細かい設定については[http://tarao.hatenablog.com/entry/20130304/evil_config:title=設定編]を見て下さい.
 
 ><h5 id="install-novice">とにかくお試し</h5><
 
@@ -228,7 +228,7 @@ f:id:tarao:20130207150701p:image:right
 
 Evilには<strong>ステート</strong>と呼ばれる状態((Vimではこれをモードと呼びますが, Emacsには既に(メジャー/マイナー)モードの概念があるので, 混同しないためにステートと名付けられています))があります. 起動時にはノーマルステートになっていて, モードラインに<code>&lt;N&gt;</code>と表示されます. ノーマルステートは, 主に移動やコマンドの実行のための状態で, 文字を打ってもそのまま入力されません. 文字を入力するには<code>i</code>, <code>a</code>, <code>o</code>等のキーを入力して挿入ステート(<code>&lt;I&gt;</code>と表示されます)に移る必要があります. 挿入ステートで<code>ESC</code>キーを押すとノーマルステートに戻ります.
 
-Emacsに慣れ親しんでいて, 万が一操作方法がよくわからなくなってしまった場合は, <code>C-z</code>でEmacsステートに移ることができます. EmacsステートではEvilの機能は無効化されて, 従来通りのEmacsとして操作できます. ふたたびEvilに戻るにはもう一度<code>C-z</code>を入力します. しかしながら, Emacsステートを使わなくとも, <code>C-x</code>, <code>M-x</code>, <code>C-g</code>等のキーは, 従来のEmacsと同じように動作し, 挿入ステートでのキーバインドも従来のEmacsのキーバインドに近い(異なる部分をEmacs本来のものに戻す方法は[http://d.hatena.ne.jp/tarao/20130304/evil_config:title=設定編]で解説します)ので, ノーマルステートと挿入ステートの違いをきちんとおさえておけば, よほどのことがない限りEmacsステートのお世話になることはないでしょう. また, 一時的にEmacsのキーバインドを使いたいだけなら, <code>\</code>キー(<code>evil-execute-in-emacs-state</code>コマンド)で, その次のコマンドをEmacsステートで実行し, 直後に元のステートに戻すことができます.
+Emacsに慣れ親しんでいて, 万が一操作方法がよくわからなくなってしまった場合は, <code>C-z</code>でEmacsステートに移ることができます. EmacsステートではEvilの機能は無効化されて, 従来通りのEmacsとして操作できます. ふたたびEvilに戻るにはもう一度<code>C-z</code>を入力します. しかしながら, Emacsステートを使わなくとも, <code>C-x</code>, <code>M-x</code>, <code>C-g</code>等のキーは, 従来のEmacsと同じように動作し, 挿入ステートでのキーバインドも従来のEmacsのキーバインドに近い(異なる部分をEmacs本来のものに戻す方法は[http://tarao.hatenablog.com/entry/20130304/evil_config:title=設定編]で解説します)ので, ノーマルステートと挿入ステートの違いをきちんとおさえておけば, よほどのことがない限りEmacsステートのお世話になることはないでしょう. また, 一時的にEmacsのキーバインドを使いたいだけなら, <code>\</code>キー(<code>evil-execute-in-emacs-state</code>コマンド)で, その次のコマンドをEmacsステートで実行し, 直後に元のステートに戻すことができます.
 
 他にどんなステートがあるか, 効率よい編集操作をするにはどうしたらよいかを学ぶには, Vimのチュートリアルを利用するとよいでしょう. <a href="http://vim.googlecode.com/hg/runtime/tutor/tutor"><code>tutor</code></a>(英語)もしくは<a href="http://vim.googlecode.com/hg/runtime/tutor/tutor.ja.utf-8"><code>tutor.ja.utf-8</code></a>(日本語)をダウンロードして, Evilを有効にしたEmacsで開きましょう. ただし, これは本来Vimのためのチュートリアルなので, いくつか注意する点があります.
 
@@ -237,7 +237,7 @@ Emacsに慣れ親しんでいて, 万が一操作方法がよくわからなく�
 - 4.1 Evilでは<code>C-g</code>はキャンセルコマンド
 -- ファイル情報はモードラインに表示される
 - 6.5 Evilでは未実装: <code>:set</code>, <code>\c</code>
--- 検索オプションは別の方法で設定可能([http://d.hatena.ne.jp/tarao/20130304/evil_config:title=設定編]を参照)
+-- 検索オプションは別の方法で設定可能([http://tarao.hatenablog.com/entry/20130304/evil_config:title=設定編]を参照)
 - 7.1 EvilではEmacsのヘルプコマンドが呼び出される: <code>:help</code>
 - 7.2 Evilでは<code>~/.emacs</code>や<code>~/.emacs.d/init.el</code>を使う
 - 7.3 Evilではバージョン1.0-dev以降
@@ -253,12 +253,12 @@ Vimを使っていたユーザにとってEvilを使うことは容易いでし�
 -- Vimスクリプトでは書けず, 今後も書けるようになる可能性は極めて低い((Frankがメーリングリストで理由を述べています: https://lists.ourproject.org/pipermail/implementations-list/2011-September/001213.html ))
 -- <code>:set</code>でのオプション設定もいまのところできない((有志で実装されるかもしれません: https://lists.ourproject.org/pipermail/implementations-list/2013-February/001776.html ))
 - おかしなことになったらとにかく<code>C-g</code>(キャンセル)を連打
-- <code>C-c</code>は<code>ESC</code>とは違う意味(同じ意味にする方法は[http://d.hatena.ne.jp/tarao/20130304/evil_config:title=設定編]を参照)
+- <code>C-c</code>は<code>ESC</code>とは違う意味(同じ意味にする方法は[http://tarao.hatenablog.com/entry/20130304/evil_config:title=設定編]を参照)
 - ヘルプの代わりに<code>M-x describe-<var>*</var></code> (<code><var>*</var></code>は<code>key</code>, <code>bindings</code>, <code>function</code>など)
 
 Evilの最初の目標は, Vimの操作性に関する主要な機能を実装することで, 先日これが達成されバージョン1.0.0がリリースされました. しかし, マイナーな機能やプラグインで提供されるべき機能などは実装されていない場合もあります. マイナーな機能のうち優先的に実装してほしいものがある場合は, [https://bitbucket.org/lyro/evil/issues?status=new&status=open:title=課題トラッカー]に要望を出しましょう.
 
-Evilで実装されていなくても, Vimの一部の機能や, Vimのプラグインの機能の多くには, Emacsの標準/非標準のパッケージで代替できるものがあります. 以下に主なものを挙げておきます. Evil用に開発されたプラグインについては, [http://d.hatena.ne.jp/tarao/20130304/evil_config:title=設定編]で利用方法を解説します.
+Evilで実装されていなくても, Vimの一部の機能や, Vimのプラグインの機能の多くには, Emacsの標準/非標準のパッケージで代替できるものがあります. 以下に主なものを挙げておきます. Evil用に開発されたプラグインについては, [http://tarao.hatenablog.com/entry/20130304/evil_config:title=設定編]で利用方法を解説します.
 
 |*機能/プラグイン|*Emacsのパッケージ|
 |<code>C-a</code>, <code>C-x</code>|[https://github.com/cofi/evil-numbers:title=evil-numbers]|

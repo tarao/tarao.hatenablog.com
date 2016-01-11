@@ -193,7 +193,7 @@ Evilのカスタマイズオプションは, Evilの挙動をVimに近づける�
 
 <code>setq</code>にはオプションの名前と設定値を書いていきます. 以下の説明では, 設定値としてのシンボルはそのままシンボル名を書いていますが, Lispの式として表現する際には<code>'</code>をつける必要があります(ただし<code>'(...)</code>の中ではつけません).
 
-すべてのカスタマイズオプションの一覧は[http://d.hatena.ne.jp/tarao/20130306/evil_appendix:title=付録]に記載してあります. ここでは重要なもののみを紹介します.
+すべてのカスタマイズオプションの一覧は[http://tarao.hatenablog.com/entry/20130306/evil_appendix:title=付録]に記載してあります. ここでは重要なもののみを紹介します.
 
 ><h5 class="custom" id="evil-cross-lines">evil-cross-lines</h5><
 
@@ -272,7 +272,7 @@ Emacsの機能のキーマップとEvilのキーマップの衝突を防ぐ方�
 :<code>(evil-declare-change-repeat <var>command</var>)</code>:繰り返し操作のために<code><var>command</var></code>によるバッファの変更点を記録します. 通常はキー入力しか記録せず, 多くの場合はそれで問題ありません. 自動補完メニューが表示されるのを待ってから選択する場合など, キー入力の再現がバッファの変更内容を再現しないようなコマンドに対してはこれを設定するとよいでしょう.
 :<code>(evil-declare-motion <var>command</var>)</code>:<code><var>command</var></code>を移動コマンドとして宣言します. 移動コマンドはビジュアルステートを終了しません.
 
-EmacsのリージョンコマンドをEvilのオペレータにするといったような, 高度なEvil化の方法については[http://d.hatena.ne.jp/tarao/20130305/evil_ext:title=拡張編]を参照して下さい.
+EmacsのリージョンコマンドをEvilのオペレータにするといったような, 高度なEvil化の方法については[http://tarao.hatenablog.com/entry/20130305/evil_ext:title=拡張編]を参照して下さい.
 
 ><h5 id="emacs-case-skk">事例紹介: SKKとの共存</h5><
 
@@ -608,7 +608,7 @@ to next line."
 
 ><h4 id="plugins">プラグイン</h4><
 
-Evilのために書かれたプラグインを紹介します. ここで紹介されている以外にも, Vimのプラグインと同等の機能を持ったEmacsパッケージは多数存在します(対応表は[http://d.hatena.ne.jp/tarao/20130303/evil_intro#usage-vim:title=導入編]を参照)が, それらの導入方法は個別のパッケージのドキュメントを参照して下さい. ここではEvilに特化したプラグインのみを挙げます. これらはEvil公式のものではなく, ユーザたちが作成して公開しているものです.
+Evilのために書かれたプラグインを紹介します. ここで紹介されている以外にも, Vimのプラグインと同等の機能を持ったEmacsパッケージは多数存在します(対応表は[http://tarao.hatenablog.com/entry/20130303/evil_intro#usage-vim:title=導入編]を参照)が, それらの導入方法は個別のパッケージのドキュメントを参照して下さい. ここではEvilに特化したプラグインのみを挙げます. これらはEvil公式のものではなく, ユーザたちが作成して公開しているものです.
 
 ><h5 id="plugin-evil-mode-line">evil-mode-line</h5><
 
