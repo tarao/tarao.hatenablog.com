@@ -87,11 +87,11 @@ img.hatena-fotolife {
         float: left;
         position: relative;
         left: 50%;
-        margin-right: -235px;
+        margin-right: -260px;
     }
     .breadcrumb > *,
     #content-inner #wrapper > * {
-        margin-right: 235px !important;
+        margin-right: 260px !important;
     }
     .breadcrumb-inner,
     #main {
