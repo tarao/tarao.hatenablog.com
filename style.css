@@ -1087,6 +1087,10 @@ a.comment-share span {
     #box2-inner {
         padding-top: 35px;
     }
+
+    .hatena-module-category .hatena-module-body ul li:first-child {
+        margin-left: 0;
+    }
 }
 
 /**** Footer ****/
