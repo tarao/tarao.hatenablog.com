@@ -898,7 +898,7 @@ a.comment-share span {
     padding: 0;
 }
 .hatena-module-category .hatena-module-body ul li {
-    margin-left: 8px;
+    margin-right: 8px;
 }
 .hatena-module-category .hatena-module-body a {
     white-space: nowrap;
@@ -1086,10 +1086,6 @@ a.comment-share span {
 @media (min-width: 1200px) {
     #box2-inner {
         padding-top: 35px;
-    }
-
-    .hatena-module-category .hatena-module-body ul li:first-child {
-        margin-left: 0;
     }
 }
 
