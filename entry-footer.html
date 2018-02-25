@@ -18,12 +18,12 @@
           <span class="user-timestamp">
             <a data-bind="@href=comment.url,$content=comment.timestamp"></a>
           </span>
-            <a data-bind="@href=share.twitter" class="comment-share twitter" target="_blank" title="Twitterでシェア">
-              <span>Twitterでシェア</span>
-            </a>
-            <a data-bind="@href=share.facebook" class="comment-share facebook" target="_blank" title="Facebookでシェア">
-              <span>Facebookでシェア</span>
-            </a>
+          <a data-bind="@href=share.twitter" class="comment-share twitter" target="_blank" title="Twitterでシェア">
+            <span>Twitterでシェア</span>
+          </a>
+          <a data-bind="@href=share.facebook" class="comment-share facebook" target="_blank" title="Facebookでシェア">
+            <span>Facebookでシェア</span>
+          </a>
           <span class="hatena-star-container">
             <a data-bind="@href=star.url,$content=star.title" class="meta"></a>
           </span>
@@ -34,20 +34,20 @@
   <script>
     (function() {
       var jsonp = (function() {
-          var count = 0;
-          return function(url, callback) {
-              var callbackName = 'anond_jsonp'+count++;
-              var head = document.querySelector('head');
-              var script = document.createElement('script');
-              script.src = url.replace(/[=]\?(&|$)/g, '='+callbackName+'$1');
-              window[callbackName] = function(data) {
-                  callback(data);
-                  window[callbackName] = undefined;
-                  try { delete window[callbackName]; } catch(e) {}
-                  head.removeChild(script);
-              };
-              head.appendChild(script);
+        var count = 0;
+        return function(url, callback) {
+          var callbackName = 'anond_jsonp'+count++;
+          var head = document.querySelector('head');
+          var script = document.createElement('script');
+          script.src = url.replace(/[=]\?(&|$)/g, '='+callbackName+'$1');
+          window[callbackName] = function(data) {
+            callback(data);
+            window[callbackName] = undefined;
+            try { delete window[callbackName]; } catch(e) {}
+            head.removeChild(script);
           };
+          head.appendChild(script);
+        };
       })();
       var Template = (function() {
         var parseBindings = function(str) {
@@ -108,8 +108,8 @@
           var item = Template.bind(template.cloneNode(true), {
             user: {
               name: b.user,
-              icon: 'http://cdn1.www.st-hatena.com/users/U/profile.gif'.replace(
-                /[U]/, [ b.user.substring(0, 2), b.user ].join('/')
+              icon: 'https://cdn.profile-image.st-hatena.com/users/U/profile.gif'.replace(
+                /[U]/, b.user
               ),
               page: bdomain(b.user) + '/',
               plus: 'none'

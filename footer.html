@@ -5,7 +5,7 @@
     var a = slide.querySelector('a');
     var url = a.getAttribute('href').replace(/^https:/, 'http:');
     var img = d.createElement('img');
-    img.src = 'http://b.hatena.ne.jp/entry/image/' + url;
+    img.src = 'https://b.hatena.ne.jp/entry/image/' + url;
     var target = a.parentNode;
     target.parentNode.insertBefore(img, target.nextSibling);
   });

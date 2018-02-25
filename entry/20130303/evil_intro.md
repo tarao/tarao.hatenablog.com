@@ -4,7 +4,7 @@ Category:
 - article
 - emacs
 - evil
-Date: 2013-03-03T00:00:00+09:00
+Date: "2013-03-03T00:00:00+09:00"
 URL: http://tarao.hatenablog.com/entry/20130303/evil_intro
 EditURL: https://blog.hatena.ne.jp/tarao/tarao.hatenablog.com/atom/entry/6653586347149235984
 ---
