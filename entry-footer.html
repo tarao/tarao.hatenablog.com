@@ -36,7 +36,7 @@
       var jsonp = (function() {
         var count = 0;
         return function(url, callback) {
-          var callbackName = 'anond_jsonp'+count++;
+          var callbackName = 'jsonp_callback'+count++;
           var head = document.querySelector('head');
           var script = document.createElement('script');
           script.src = url.replace(/[=]\?(&|$)/g, '='+callbackName+'$1');
