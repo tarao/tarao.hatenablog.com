@@ -290,6 +290,10 @@ ul.table-of-contents ul.table-of-contents {
     border: none;
 }
 
+.only-in-toc {
+    display: none;
+}
+
 /**** Archive ****/
 
 div.archive-entries {
@@ -473,6 +477,11 @@ div.archive-entries {
 .entry-content pre a.keyword {
     color: inherit;
 }
+
+.entry-content .error pre {
+    color: #ff6666;
+}
+
 .entry-content blockquote {
     margin: 1em 0;
     padding: 1em 0.8em 1.5em 0.5em;
@@ -507,7 +516,7 @@ div.archive-entries {
 }
 .entry-content blockquote p:first-child ,
 .entry-content blockquote pre:first-child {
-    margin-top: 0;
+    margin-top: 0.5em;
 }
 .entry-content blockquote cite {
     font-size: 90%;
@@ -550,6 +559,37 @@ div.archive-entries {
     float: none;
     text-align: right;
     margin-top: 0.5em !important;
+}
+.entry-content blockquote.epigraph .requote-button {
+    display: none;
+}
+body.page-index .epigraph {
+    display: none;
+}
+
+.entry-content .column {
+    border: 1px solid #dfe1e3;
+    border-left-width: 5px;
+    border-radius: 5px;
+    margin: 1em 0;
+    padding: 1em 1.5em;
+}
+.entry-content .column h2,
+.entry-content .column h3,
+.entry-content .column h4,
+.entry-content .column h5,
+.entry-content .column h6 {
+    margin-top: 0;
+    border: none;
+    border-bottom: 1px solid #dfe1e3;
+    padding: 0;
+}
+.entry-content .column p:last-child {
+    margin-bottom: 0;
+}
+
+.entry-content .journal {
+    font-style: italic;
 }
 
 .entry-content div.hatena-asin-detail ul {
@@ -952,6 +992,11 @@ a.comment-share span {
 .hatena-module-search-box .search-module-button:hover {
     opacity: 0.85;
     filter: alpha(opacity=85);
+}
+
+.hatena-module-title .contributing-blog-title {
+    margin-left: 1em;
+    font-size: 80%;
 }
 
 @media (max-width: 983px) {
