@@ -487,7 +487,7 @@ div.archive-entries {
     padding: 1em 0.8em 1.5em 0.5em;
 }
 .entry-content blockquote > * {
-    margin-left: 2.5em;
+    margin-left: 3em;
 }
 .entry-content blockquote:before {
     display: block;
