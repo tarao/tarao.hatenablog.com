@@ -588,6 +588,15 @@ body.page-index .epigraph {
     margin-bottom: 0;
 }
 
+.entry-content .definition,
+.entry-content .theorem,
+.entry-content .proposition {
+    margin: 1em 0;
+    padding: 1em 1.5em;
+    border: 1px solid #dfe1e3;
+    border-radius: 5px;
+}
+
 .entry-content .journal {
     font-style: italic;
 }
