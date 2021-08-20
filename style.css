@@ -601,6 +601,18 @@ body.page-index .epigraph {
     font-style: italic;
 }
 
+.entry-content .todo {
+    color: red;
+}
+.entry-content .todo:before {
+    content: "TODO";
+    position: absolute;
+    left: 0;
+    margin-left: -3rem;
+    padding: 0 .2rem;
+    border: 1px solid red;
+}
+
 .entry-content div.hatena-asin-detail ul {
     list-style: none;
     margin: 0;
